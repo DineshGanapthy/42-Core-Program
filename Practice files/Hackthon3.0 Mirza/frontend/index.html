@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application | AmBank Inspired</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Loan Application</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <form id="loanForm">
+            <div id="formMessages"></div>
+
+            <!-- Section 1: Purpose of Account -->
+            <section class="card">
+                <h2 class="card-title">Purpose of Account</h2>
+                <div class="form-group">
+                    <label for="purposeSelect">Select Purpose</label>
+                    <select name="purpose" id="purposeSelect" required>
+                        <option value="" disabled selected>Select purpose...</option>
+                        <option value="House Renovation">House Renovation</option>
+                        <option value="Holiday">Holiday</option>
+                        <option value="Settlement of Another Loan/Credit Card">Settlement of Another Loan/Credit Card
+                        </option>
+                        <option value="Medical Fee">Medical Fee</option>
+                        <option value="Education">Education</option>
+                        <option value="Others">Others (Please Specify)</option>
+                    </select>
+                    <input type="text" id="purposeOthersInput" class="others-input" placeholder="Please specify...">
+                </div>
+            </section>
+
+            <!-- Section 2: Loan Amount and Tenure -->
+            <section class="card">
+                <h2 class="card-title">Loan Amount and Tenure</h2>
+                <div class="form-group">
+                    <label>Loan Amount (RM)</label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="loanAmount" value="2000" required>
+                            RM2,000</label>
+                        <label class="radio-option"><input type="radio" name="loanAmount" value="10000">
+                            RM10,000</label>
+                        <label class="radio-option"><input type="radio" name="loanAmount" value="20000">
+                            RM20,000</label>
+                        <label class="radio-option"><input type="radio" name="loanAmount" value="50000">
+                            RM50,000</label>
+                        <label class="radio-option"><input type="radio" name="loanAmount" value="100000">
+                            RM100,000</label>
+                        <label class="radio-option others-option">
+                            <input type="radio" name="loanAmount" value="Others" id="amountOthersRadio"> Others:
+                            <input type="number" id="amountOthersInput" class="inline-input" placeholder="RM" min="1">
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Tenure (months)</label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="tenure" value="12" required> 12</label>
+                        <label class="radio-option"><input type="radio" name="tenure" value="24"> 24</label>
+                        <label class="radio-option"><input type="radio" name="tenure" value="36"> 36</label>
+                        <label class="radio-option"><input type="radio" name="tenure" value="48"> 48</label>
+                        <label class="radio-option"><input type="radio" name="tenure" value="60"> 60</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Personal Details -->
+            <section class="card">
+                <h2 class="card-title">Personal Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name (as per I.C.)</label>
+                        <input type="text" name="fullName" id="fullName" required pattern="[A-Z\s\-@\.]+"
+                            title="Must be UPPERCASE letters only" placeholder="e.g. ALICIA TAN MEI LING">
+                    </div>
+                    <div class="form-group">
+                        <label for="icNo">I.C. No.</label>
+                        <input type="text" name="icNo" id="icNo" required pattern="\d{12}"
+                            title="Must be exactly 12 digits" placeholder="e.g. 900101105566">
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" name="dob" id="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileNo">Mobile Tel No.</label>
+                        <input type="text" name="mobileNo" id="mobileNo" required pattern="01\d{8,9}"
+                            title="Must start with 01 and be 10-11 digits" placeholder="e.g. 0123456789">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Marital Status</label>
+                        <div class="radio-group">
+                            <label class="radio-option"><input type="radio" name="maritalStatus" value="Single"
+                                    required> Single</label>
+                            <label class="radio-option"><input type="radio" name="maritalStatus" value="Married">
+                                Married</label>
+                            <label class="radio-option"><input type="radio" name="maritalStatus" value="Widowed">
+                                Widowed</label>
+                            <label class="radio-option"><input type="radio" name="maritalStatus" value="Divorced">
+                                Divorced</label>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Gender</label>
+                        <div class="radio-group">
+                            <label class="radio-option"><input type="radio" name="gender" value="Male" required>
+                                Male</label>
+                            <label class="radio-option"><input type="radio" name="gender" value="Female"> Female</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="education">Highest Education</label>
+                        <select name="education" id="education" required>
+                            <option value="" disabled selected>Select education level...</option>
+                            <option value="Primary & Lower">Primary & Lower</option>
+                            <option value="Secondary">Secondary</option>
+                            <option value="Diploma / STPM / A-level">Diploma / STPM / A-level</option>
+                            <option value="Higher / Advanced Diploma">Higher / Advanced Diploma</option>
+                            <option value="Degree">Degree</option>
+                            <option value="Masters">Masters</option>
+                            <option value="PHD or Higher">PHD or Higher</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dependents">Number of Dependents</label>
+                        <input type="number" name="dependents" id="dependents" min="0" placeholder="e.g. 2" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="email">Email Address</label>
+                        <input type="email" name="email" id="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                            title="Must be a valid email (e.g. user@domain.com)" placeholder="e.g. alicia@example.com">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Employment Information -->
+            <section class="card">
+                <h2 class="card-title">Employment / Business Information</h2>
+                <div class="form-group">
+                    <label for="empType">Employment Type</label>
+                    <select name="empType" id="empType" required>
+                        <option value="" disabled selected>Select employment type...</option>
+                        <option value="Self-Employed">Self-Employed</option>
+                        <option value="Private Employee">Private Employee (Permanent)</option>
+                        <option value="Private Employee (Contracted)">Private Employee (Contracted)</option>
+                        <option value="Government Employee">Government Employee (Permanent)</option>
+                        <option value="Government Employee (Contracted)">Government Employee (Contracted)</option>
+                        <option value="Unemployed">Unemployed</option>
+                        <option value="Retiree">Retiree</option>
+                    </select>
+                </div>
+
+                <!-- Occupation/Years - Hidden for Unemployed/Retiree -->
+                <div id="employmentDetails" class="form-grid">
+                    <div class="form-group">
+                        <label for="occupation">Occupation</label>
+                        <input type="text" name="occupation" id="occupation" placeholder="e.g. Software Engineer">
+                    </div>
+                    <div class="form-group">
+                        <label for="yearsEmployment">Year(s) of Employment</label>
+                        <input type="number" name="yearsEmployment" id="yearsEmployment" min="0" step="0.1"
+                            placeholder="e.g. 5">
+                    </div>
+                </div>
+
+                <!-- Income - Always visible -->
+                <div class="form-grid" style="margin-top: 1rem;">
+                    <div class="form-group">
+                        <label>Income Type</label>
+                        <div class="radio-group">
+                            <label class="radio-option"><input type="radio" name="incomeType" value="annual" checked>
+                                Annual</label>
+                            <label class="radio-option"><input type="radio" name="incomeType" value="monthly">
+                                Monthly</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="income" id="incomeLabel">Annual Income/Funds (RM)</label>
+                        <input type="number" name="income" id="income" min="0" placeholder="e.g. 60000">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Declaration of Debt -->
+            <section class="card">
+                <h2 class="card-title">Declaration of Debt Obligations</h2>
+                <p class="card-subtitle">As mandated by regulator. Leave empty if none.</p>
+                <div class="table-container">
+                    <table id="debtTable">
+                        <thead>
+                            <tr>
+                                <th>Type of Loan</th>
+                                <th>Bank</th>
+                                <th>Loan Amount (RM)</th>
+                                <th>Monthly Installment (RM)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="debtTableBody">
+                            <!-- Dynamic rows -->
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" class="btn btn-secondary" id="addDebtRowBtn">+ Add Row</button>
+            </section>
+
+            <!-- Submit -->
+            <div class="submit-section">
+                <button type="submit" class="btn btn-primary">Submit Application</button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Loan Application Demo. AmBank-Inspired Design.</p>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
