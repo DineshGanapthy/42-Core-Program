@@ -1,0 +1,337 @@
+/* === CSS Variables === */
+:root {
+    --primary-red: #ED1C24;
+    --primary-yellow: #F5A623;
+    --dark-red: #C0171D;
+    --text-dark: #333333;
+    --text-muted: #666666;
+    --bg-light: #F8F9FA;
+    --bg-white: #FFFFFF;
+    --border-color: #DEE2E6;
+    --error-red: #DC3545;
+    --error-bg: #F8D7DA;
+    --success-green: #28A745;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --radius: 8px;
+}
+
+/* === Reset & Base === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    min-height: 100vh;
+}
+
+/* === Layout === */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* === Header === */
+.header {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    color: white;
+    padding: 1.5rem 0;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* === Cards === */
+.card {
+    background: var(--bg-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary-yellow);
+}
+
+.card-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* === Form Elements === */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.form-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background-color: var(--bg-white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 3px rgba(237, 28, 36, 0.15);
+}
+
+/* Validation: Only show error styles when touched */
+input.touched:invalid,
+select.touched:invalid,
+.is-invalid {
+    border-color: var(--error-red);
+    background-color: var(--error-bg);
+}
+
+input.touched:invalid:focus,
+select.touched:invalid:focus,
+.is-invalid:focus {
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+}
+
+/* Others Input (hidden by default) */
+.others-input {
+    display: none;
+    margin-top: 0.75rem;
+}
+
+.others-input.active {
+    display: block;
+}
+
+/* === Radio Buttons === */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 400;
+    transition: border-color 0.2s, background-color 0.2s;
+    flex: 1;
+    min-width: fit-content;
+    justify-content: center;
+}
+
+.radio-option:hover {
+    border-color: var(--primary-red);
+}
+
+.radio-option input[type="radio"] {
+    width: auto;
+    accent-color: var(--primary-red);
+}
+
+/* Others option with inline input */
+.others-option {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.inline-input {
+    flex: 1;
+    min-width: 80px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+}
+
+.inline-input:focus {
+    outline: none;
+    border-color: var(--primary-red);
+}
+
+/* === Table === */
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+thead {
+    background: var(--primary-red);
+    color: white;
+}
+
+th,
+td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--bg-light);
+}
+
+tbody input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* === Buttons === */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--dark-red);
+}
+
+.btn-secondary {
+    background: var(--primary-yellow);
+    color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+    background: #E09620;
+}
+
+.btn-danger {
+    background: var(--error-red);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.btn-danger:hover {
+    background: #C82333;
+}
+
+/* === Submit Section === */
+.submit-section {
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.submit-section .btn-primary {
+    padding: 1rem 3rem;
+    font-size: 1.125rem;
+}
+
+/* === Error Banner === */
+.error-banner {
+    background-color: var(--error-bg);
+    border: 1px solid var(--error-red);
+    color: #721C24;
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    color: var(--error-red);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* === Footer === */
+.footer {
+    background: var(--text-dark);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .radio-group {
+        flex-direction: column;
+    }
+
+    .radio-option {
+        width: 100%;
+    }
+}
