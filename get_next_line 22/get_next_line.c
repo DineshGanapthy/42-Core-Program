@@ -6,7 +6,7 @@
 /*   By: dganapat <dganapat@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:05:08 by dganapat          #+#    #+#             */
-/*   Updated: 2026/02/11 19:17:28 by dganapat         ###   ########.fr       */
+/*   Updated: 2026/02/19 12:53:11 by dganapat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_complete_line(char *holder)
 	i = 0;
 	if (!holder[i])
 		return (NULL);
-	while (holder[i] != '\n' && holder[i])
+	while (holder[i] && holder[i] != '\n')
 		i++;
 
 	complete_line = ft_calloc(i + 2, sizeof(char)); // Need futher explaination on the +2 why +2 and not + 1? 
@@ -120,10 +120,10 @@ char *get_next_line(int fd)
 	static char	*holder;
 	int		bytes_read;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd,0,0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || (read(fd,0,0) < 0))
 		return (NULL);
 
-// This will read the entire file including the /n newlines and 
+// This will read the  file in the byes stated by the read fuction including the /n newlines and 
 //store it in a string called holder. 
 holder = ft_read_file(fd, holder, &bytes_read);
 	if (!holder)
