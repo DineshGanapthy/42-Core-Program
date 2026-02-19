@@ -6,7 +6,7 @@
 /*   By: dganapat <dganapat@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 15:49:45 by dganapat          #+#    #+#             */
-/*   Updated: 2026/02/11 19:06:15 by dganapat         ###   ########.fr       */
+/*   Updated: 2026/02/19 13:53:04 by dganapat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ char	*ft_balance(char *holder);
 
 size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
-char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
-void	ft_bzero(void *s, size_t n);
+void	ft_memset(void *s, int c, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 
 char *get_next_line(int fd);
