@@ -6,7 +6,7 @@
 /*   By: dganapat <dganapat@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 10:42:22 by dganapat          #+#    #+#             */
-/*   Updated: 2026/04/07 12:46:48 by dganapat         ###   ########.fr       */
+/*   Updated: 2026/04/07 18:17:15 by dganapat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ void	free_stack(t_stack_node **stack)
 void	free_errors(t_stack_node **a)
 {
 	free_stack(a);
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }

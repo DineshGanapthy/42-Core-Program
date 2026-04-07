@@ -6,7 +6,7 @@
 /*   By: dganapat <dganapat@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 16:45:37 by dganapat          #+#    #+#             */
-/*   Updated: 2026/04/07 12:36:57 by dganapat         ###   ########.fr       */
+/*   Updated: 2026/04/07 17:18:35 by dganapat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ static void	append_node(t_stack_node **stack, int n)
 	node = malloc(sizeof(t_stack_node));
 	if (!node)
 		return ;
-	node ->next = NULL;
-	node ->nbr = n;
+	node->next = NULL;
+	node->nbr = n;
 	node->cheapest = 0;
 	if (!(*stack))
 	{

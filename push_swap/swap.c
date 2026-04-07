@@ -6,11 +6,33 @@
 /*   By: dganapat <dganapat@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 11:49:31 by dganapat          #+#    #+#             */
-/*   Updated: 2026/04/07 11:09:08 by dganapat         ###   ########.fr       */
+/*   Updated: 2026/04/07 16:59:00 by dganapat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// Expected
+// node_1:
+// next = NULL
+// previous = node_2
+
+// node_2:
+// next = node_1
+// previous = NULL
+
+// head: node_2
+
+// Actual:
+// node_1:
+// next = NULL
+// previous = node_2
+
+// node_2:
+// next = NULL
+// previous = node_1
+
+// head: node_2
 
 static void	swap(t_stack_node **head)
 {
@@ -21,6 +43,7 @@ static void	swap(t_stack_node **head)
 	(*head)->previous->next = (*head)->next;
 	if ((*head)->next)
 		(*head)->next->previous = (*head)->previous;
+    (*head)->next = (*head)->previous;
 	(*head)->previous = NULL;
 }
 

@@ -6,7 +6,7 @@
 /*   By: dganapat <dganapat@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 13:46:52 by dganapat          #+#    #+#             */
-/*   Updated: 2026/04/07 14:28:39 by dganapat         ###   ########.fr       */
+/*   Updated: 2026/04/07 15:38:14 by dganapat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ void			sort_stacks(t_stack_node **a, t_stack_node **b);
 
 //Extra
 void			min_on_top(t_stack_node **a);
-//char	*free_split(char **string_split);
+char	*free_split(char **string_split);
 
 #endif

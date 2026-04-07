@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # Standard
-NAME				= push_swap_1
+NAME				= push_swap
 
 # Compiler and Cflags
 CC					= cc
