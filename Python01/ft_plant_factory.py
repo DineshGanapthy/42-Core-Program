@@ -3,50 +3,26 @@ class Plant:
         """Initialize a Plant instance."""
         self.name = name
         self.height = height
-        self.age_days = age
+        self.age = age
 
-    def get_info(self) -> None:
-        """Print the plant information"""
-        print(f"{self.name}: {self.height}cm, {self.age_days} days old")
-
-    def grow(self) -> None:
-        """Increase plant height by 1 cm."""
-        self.height += 1
-
-    def age(self) -> None:
-        """Increase plant age by 1 day."""
-        self.age_days += 1
+    def show(self) -> None:
+        """Print/Show the plant information"""
+        print(f"{self.name}: {self.height:.1f}cm, {self.age} days old")
 
 
 def ft_plant_factory() -> None:
-    """Simulate one week of plant growth."""
-    curr_day = 1
+    """Create and display a registry of garden Plants."""
     plants = [
         Plant("Rose", 25, 30),
-        #Plant("Sunflower", 80, 45),
-        #Plant("Cactus", 15, 120),
+        Plant("Oak", 200, 365),
+        Plant("Cactus", 5, 90),
+        Plant("Sunflower", 80, 45),
+        Plant("Fern", 15, 120),
     ]
-    initial_heights = {}
+    print("=== Plant Factory Output ===")
     for plant in plants:
-        initial_heights[plant.name] = plant.height
-    print(f"=== Day {curr_day} ===")
-    for plant in plants:
-        plant.get_info()
-
-    while (curr_day < 7):
-        for plant in plants:
-            plant.grow()
-            plant.age()
-        curr_day += 1
-
-    print(f"=== Day {curr_day} ===")
-    for plant in plants:
-        plant.get_info()
-
-    print('\nGrowth this week:')
-    for plant in plants:
-        growth = plant.height - initial_heights[plant.name]
-        print(f"{plant.name}: +{growth}cm")
+        print("Created: ", end='')
+        plant.show()
 
 
 if __name__ == "__main__":
